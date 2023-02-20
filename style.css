@@ -1,0 +1,57 @@
+/* Add a transition to the task item when it is hovered */
+li.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add a bounce transition to the Add button when it is clicked */
+  button[type='submit']:active {
+    transform: translateY(2px);
+  }
+
+  button
+  {
+    margin-top: 14px !important;
+  }
+  
+  /* Add a shake transition to the input field when it is focused */
+  input:focus {
+    animation: shake 0.5s;
+  }
+  
+  /* Add a pop animation to the task item when it is added to the list */
+  li.task-item.pop {
+    animation: pop 0.5s;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+  
+  @keyframes pop {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  

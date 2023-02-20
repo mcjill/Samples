@@ -1,89 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Password Generator</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css">
-  <style>
-    .password-generator {
-      width: 50%;
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-  </style>
-</head>
-<body class="bg-gray-100 h-screen flex items-center justify-center">
-  <div class="password-generator rounded-lg shadow-lg p-8 bg-white">
-    <h1 class="text-2xl font-bold mb-4">Password Generator</h1>
-    <p class="text-gray-700 mb-4">Generate a strong, unique password with just a few clicks.</p>
-    <div class="mb-4">
-      <label for="password-length" class="block text-gray-700 font-bold mb-2">Password Length:</label>
-      <input type="number" id="password-length" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" min="8" max="30" value="12">
+  <head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+  </head>
+  <body class="flex justify-center items-center min-h-screen bg-gray-200">
+    <div class="w-full max-w-md">
+      <h1 class="text-3xl font-bold text-center mb-4">To-Do List</h1>
+      <ul id="task-list" class="list-reset">
+        <!-- Tasks will be added here dynamically -->
+      </ul>
+      <form id="task-form" class="mt-4">
+        <input id="task-input" type="text" class="w-full p-2 rounded-lg shadow-lg" placeholder="Add a new task...">
+        <button type="submit" class="w-full p-2 rounded-lg shadow-lg bg-blue-500 text-white">Add</button>
+        
+      </form>
     </div>
-    <div class="mb-4">
-      <label for="password-options" class="block text-gray-700 font-bold mb-2">Include:</label>
-      <div id="password-options" class="flex justify-around">
-        <div class="relative flex items-center mr-4">
-          <input type="checkbox" id="uppercase" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-          <label for="uppercase" class="ml-2 block text-gray-700 font-bold">Uppercase</label>
-        </div>
-        <div class="relative flex items-center mr-4">
-          <input type="checkbox" id="lowercase" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-          <label for="lowercase" class="ml-2 block text-gray-700 font-bold">Lowercase</label>
-        </div>
-        <div class="relative flex items-center mr-4">
-          <input type="checkbox" id="numbers" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-          <label for="numbers" class="ml-2 block text-gray-700 font-bold">Numbers</label>
-        </div>
-        <div class="relative flex items-center mr-4">
-          <input type="checkbox" id="symbols" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-          <label for="symbols" class="ml-2 block text-gray-700 font-bold">Symbols</label>
-        </div>
-    </div>
-</div>
-<button id="generate-button" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full hover:bg-indigo-500 focus:outline-none focus:shadow-outline">Generate</button>
-<div id="generated-password" class="mt-4 text-2xl font-bold text-indigo-600"></div>
 
-<p>Developed by: anythingprogrammming Team</p>
-</div>
-<script>
-const generateButton = document.getElementById('generate-button');
-const passwordLengthInput = document.getElementById('password-length');
-const passwordOptions = document.getElementById('password-options');
-const generatedPassword = document.getElementById('generated-password');
-
-const generatePassword = () => {
-let password = '';
-let passwordLength = passwordLengthInput.value;
-let uppercase = passwordOptions.querySelector('#uppercase').checked;
-let lowercase = passwordOptions.querySelector('#lowercase').checked;
-let numbers = passwordOptions.querySelector('#numbers').checked;
-let symbols = passwordOptions.querySelector('#symbols').checked;
-if (!uppercase && !lowercase && !numbers && !symbols) {
-generatedPassword.innerText = 'Select a Checkbox!';
-return;
-}
-let passwordCharacters = '';
-if (uppercase) {
-passwordCharacters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-}
-if (lowercase) {
-passwordCharacters += 'abcdefghijklmnopqrstuvwxyz';
-}
-if (numbers) {
-passwordCharacters += '0123456789';
-}
-if (symbols) {
-passwordCharacters += '!@#$%^&*()_+-=[]{}|;:,.<>/?`~';
-}
-for (let i = 0; i < passwordLength; i++) {
-password += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
-}
-generatedPassword.innerText = password;
-};
-generateButton.addEventListener('click', generatePassword);
-</script>
-
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
+<!-- 
+<iframe src="https://drive.google.com/file/d/1VwS2ltJRR9mRH-2kK1E4rA1Wk-BBoS70/preview" width="640" height="480"></iframe>
+ -->
